@@ -6,9 +6,6 @@ android:
 
 jdk: oraclejdk8
 
-os: linux
-dist: trusty
-
 sudo: required
 
 before_script:
@@ -27,22 +24,8 @@ cache:
     - $HOME/.gradle/wrapper/
 
 after_success:
-  -
-  
-  after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - whereis FastHub-debug.apk
-  - (date +%b-%d-%Y-%H:%M)
-  - cd zac6ix/FastHub/FastHub/build/outputs/apk/
-  - mv FastHub-debug.apk FastHub-debug_$(date +%b-%d-%Y-%H:%M)_unofficial_C7.apk 
-  - FILE=FastHub-debug_$(date +%b-%d-%Y-%H:%M)_unofficial_C7.apk
-  - export FILE
-  - hst=uploads.androidfilehost.com
-  - us=iyke
-  - key=HsHXIgOLoRXs
-  - curl -ftp-pasv -T $FILE ftp://$us:$key@$hst
 
 notifications:
-  slack: fasthub:bf00ead5-f681-458b-8527-681d1faf2cf0
+  slack: fasthub:mjJWGD8UpgSgKawKa5OqMNlR
   email: false
- 
